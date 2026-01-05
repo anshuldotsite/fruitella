@@ -1,26 +1,136 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Playful Palette */
+  --bg-cream: #fffbf0;
+  --pop-pink: #ff6b9d;
+  --pop-yellow: #ffd93d;
+  --pop-green: #6bcb77;
+  --pop-blue: #4d96ff;
+  --pop-orange: #ff9f45;
+  --text-dark: #2d3436;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+  --color-cream: var(--bg-cream);
+  --color-pink: var(--pop-pink);
+  --color-yellow: var(--pop-yellow);
+  --color-green: var(--pop-green);
+  --color-blue: var(--pop-blue);
+  --color-orange: var(--pop-orange);
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --font-sans: var(--font-fredoka), sans-serif;
+  --font-display: var(--font-outfit), sans-serif;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--bg-cream);
+  color: var(--text-dark);
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+}
+
+/* Show default cursor on mobile */
+@media (max-width: 768px) {
+  body {
+    cursor: auto;
+  }
+}
+
+/* Fun Utilities */
+.text-outline {
+  -webkit-text-stroke: 2px var(--text-dark);
+  color: transparent;
+}
+
+.text-outline-white {
+  -webkit-text-stroke: 2px white;
+  color: transparent;
+}
+
+.shadow-pop {
+  box-shadow: 4px 4px 0px var(--text-dark);
+}
+
+.shadow-pop-hover:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0px var(--text-dark);
+}
+
+.shadow-pop-active:active {
+  transform: translate(2px, 2px);
+  box-shadow: 0px 0px 0px var(--text-dark);
+}
+
+/* Animations */
+@keyframes bounce-short {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.animate-bounce-short {
+  animation: bounce-short 0.5s ease-in-out;
+}
+
+@keyframes bounce-slow {
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-20px) rotate(5deg);
+  }
+}
+
+.animate-bounce-slow {
+  animation: bounce-slow 3s ease-in-out infinite;
+}
+
+@keyframes wiggle {
+  0%,
+  100% {
+    transform: rotate(-3deg);
+  }
+  50% {
+    transform: rotate(3deg);
+  }
+}
+
+.animate-wiggle {
+  animation: wiggle 2s ease-in-out infinite;
+}
+
+@keyframes float {
+  0% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(10px, -20px);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+/* Marquee */
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-scroll {
+  animation: scroll 20s linear infinite;
 }
