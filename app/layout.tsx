@@ -15,9 +15,9 @@ const fredoka = Fredoka({
 });
 
 export const metadata: Metadata = {
-  title: "Fruittela - Windsor's Sweetest Destination",
+  title: "The Ice Cream Shop - Windsor's Coolest Spot",
   description:
-    "Premium ice creams, shakes, Dubai chocolate, and more in Windsor, Ontario",
+    "Premium ice cream flavors, shakes, and more in Windsor, Ontario",
 };
 
 export default function RootLayout({
